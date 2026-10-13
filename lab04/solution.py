@@ -1,5 +1,5 @@
-from __future__import annotations 
-def winner(names: list[str] ,scores:list[float]) -> str:
+
+def winner(names ,scores) -> str:
     best_score=scores[0]
     best_name=names[0]
     for name, score in zip(names,scores):
@@ -9,7 +9,7 @@ def winner(names: list[str] ,scores:list[float]) -> str:
     return best_name
 
 
-def average(scores: list[float]) -> float:
+def average(scores) -> float:
     if len(scores)==0:
         return 0.0
     else:
@@ -30,10 +30,11 @@ def above_average(names: list[str],scores: list [float]) -> list[str]:
             result.append(name)
     return result
 
-names =  ["Аня", "Боря", "Вика"]
-scores = [7.0,   9.0,    9.0]
+
 
 
 
 if __name__=="__main__":
-    print(above_average(names,scores))
+    names =  ["Аня", "Боря", "Вика"]
+    scores = [7.0,   9.0,    9.0]
+    print(winner(names,scores))
