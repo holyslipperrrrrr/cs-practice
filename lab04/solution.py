@@ -17,12 +17,12 @@ def average(scores) -> float:
 
 
 
-def ranking(names: list[str],scores: list[float]) -> list[str]:
+def ranking(names,scores) -> str:
     pairs = sorted(zip(names, scores), key=lambda pair: pair[1], reverse=True)
     return [name for name, score in pairs]
 
 
-def above_average(names: list[str],scores: list [float]) -> list[str]:
+def above_average(names,scores) -> str:
     sr=average(scores)
     result=[]
     for name,score in zip(names,scores):
