@@ -17,9 +17,15 @@ for i in range(n):
             xmax+=1
         if maxx is None or a>maxx:
             maxx=a
-sr=summa/x
+
 print(n)
 print(error)
 print(xmax)
-print(f"{maxx:.1f}")
-print(f"{sr:.1f}")
+
+
+if x>0:
+    sr= summa /x
+    print(f"{sr:.1f}")
+    print(f"{maxx:.1f}")
+else:
+    print('нет данных')
