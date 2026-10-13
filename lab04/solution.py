@@ -1,3 +1,4 @@
+from __future__import annotations 
 def winner(names: list[str] ,scores:list[float]) -> str:
     best_score=scores[0]
     best_name=names[0]
@@ -28,3 +29,11 @@ def above_average(names: list[str],scores: list [float]) -> list[str]:
         if score> sr:
             result.append(name)
     return result
+
+names =  ["Аня", "Боря", "Вика"]
+scores = [7.0,   9.0,    9.0]
+
+
+
+if __name__=="__main__":
+    print(above_average(names,scores))
