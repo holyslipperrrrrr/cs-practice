@@ -6,3 +6,7 @@ def count_items(values: list)-> dict:
 
 def unique_sorted(values:list)-> list:
     return sorted(set(values))
+
+
+def comon(first:list, second:list)->list:
+    return sorted(set(first)&set(second))
