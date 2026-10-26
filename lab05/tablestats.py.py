@@ -21,3 +21,14 @@ def read_rows(lines):
         if kind :
             counts[kind]=counts.get(kind,0)+1
     return counts
+
+def total_minutes(rows,kind):
+    total=0.0
+    for row in rows :
+        if row["тип"] != kind:
+            continue
+        try:
+            total+=float (row["минуты "].replace(",","."))
+        except ValueError :
+            continue
+    return round(total,1)
