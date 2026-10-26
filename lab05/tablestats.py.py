@@ -13,3 +13,11 @@ def read_rows(lines):
             continue
         rows.append(dict(zip(header,fields)))
     return rows
+
+    def count_types(rows):
+    count={}
+    for row in rows:
+        kind=row.get("тип")
+        if kind :
+            counts[kind]=counts.get(kind,0)+1
+    return counts
