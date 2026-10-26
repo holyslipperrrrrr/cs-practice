@@ -32,3 +32,9 @@ def total_minutes(rows,kind):
         except ValueError :
             continue
     return round(total,1)
+
+def to_csv(counts):
+    lines=[]
+    for kind in sorted(counts.keys()):
+        lines.append(f"{kind},{counts[kind]}")
+    return "\n".join(lines)+"\n"
