@@ -1,40 +1,44 @@
 def read_rows(lines):
-    rows=[]
-    header=None
+    rows = []
+    header = None
     for line in lines:
-        line=line.strip()
+        line = line.strip()
         if not line:
             continue
-        fields=[field.strip() for field in line.split(",")]
+        fields = [field.strip() for field in line.split(",")]
         if header is None:
-            header=fields
+            header = fields
             continue
-        if len(fields)!=len(header):
+        if len(fields) != len(header):
             continue
-        rows.append(dict(zip(header,fields)))
+        rows.append(dict(zip(header, fields)))
     return rows
 
-    def count_types(rows):
-    count={}
+
+def count_types(rows):
+    counts = {}
     for row in rows:
-        kind=row.get("тип")
-        if kind :
-            counts[kind]=counts.get(kind,0)+1
+        kind = row.get("тип")
+        if kind:
+            counts[kind] = counts.get(kind, 0) + 1
     return counts
 
-def total_minutes(rows,kind):
-    total=0.0
-    for row in rows :
-        if row["тип"] != kind:
+
+def total_minutes(rows, kind):
+    total = 0.0
+    for row in rows:
+        if row.get("тип") != kind:
             continue
+        value = row.get("минуты", "").replace(",", ".")
         try:
-            total+=float (row["минуты "].replace(",","."))
-        except ValueError :
+            total += float(value)
+        except ValueError:
             continue
-    return round(total,1)
+    return round(total, 1)
+
 
 def to_csv(counts):
-    lines=[]
+    lines = ["тип,количество"]
     for kind in sorted(counts.keys()):
         lines.append(f"{kind},{counts[kind]}")
-    return "\n".join(lines)+"\n"
+    return "\n".join(lines) + "\n"
