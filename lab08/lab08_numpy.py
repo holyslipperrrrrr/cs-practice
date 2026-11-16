@@ -49,3 +49,9 @@ changed_matrix[1, :] = 0
 changed_matrix[:, -1] = -1     
 changed_matrix[1:4, 1:4] = 100 
 print(changed_matrix, matrix)
+
+numbers = np.arange(12)          
+table = numbers.reshape(3, 4)    
+transposed = table.T             
+
+print( numbers.shape, table.shape, transposed.shape)  
